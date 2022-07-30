@@ -1,51 +1,41 @@
-// Task #1
-// Реализовать рекурсивную функцию которая находит факториал переданного в нее числа
-// getFactorial(3) // в данном случае должна вернуть факториал числа 3! = 3 * 2 * 1
+'use strict';
 
-function getFactorial(num){
+void function (){
 
-    if(num === 0 || num === 1){
-        return 1;
+
+    const arrMap = new Map();
+    const arr = [];
+
+    function cash (num){
+        if(arrMap.size >= 10){
+            arrMap.delete(arr[0]);
+            arr.shift();
+        }
+        arr.push(num);
+        arr.forEach(item => {
+            arrMap.set(item, item);
+        })
+
     }
 
-    return num * getFactorial(num - 1);
-}
 
-console.log('Task #1');
-console.log(getFactorial(3));
+    cash(1);
+    cash(2);
+    cash(3);
+    cash(4);
+    cash(5);
+    cash(6);
+    cash(7);
+    cash(8);
+    cash(9);
+    cash(10);
+    cash(11);
+    cash(12);
+    cash(13);
+    cash(14);
+
+    console.log(arr);
+    console.log(arrMap);
+}()
 
 
-// Task #2
-// Реализовать рекурсивную функцию которая находит возводит число в степень.
-// Число которое нужно возвести в степень передается как первый аргумент в функцию
-// Степень передается как второй аргумент в функцию pow(num, degree)
-
-function pow(num, degree){
-
-    if(degree === 1){
-        return num;
-    }
-
-    return num * pow(num, degree - 1);
-}
-
-console.log('Task #2');
-console.log(pow(3,5));
-
-// Task #3
-// Рекурсивное суммирование
-// Задача: напишите рекурсивную функцию для вычисления суммы заданных положительных целых чисел a и b
-// без прямого использования оператора +.
-
-function sum(a, b){
-
-    if(a === 0){
-        return b;
-    }
-
-    return sum(a - 1,b + 1);
-
-}
-
-console.log('Task #3');
-console.log(sum(3,5));
